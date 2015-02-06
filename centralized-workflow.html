@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+	<meta charset="utf-8">
+
+	<title>Introducing Version Control</title>
+
+	<meta name="description" content="Git for research scientists.">
+	<meta name="author" content="Andy Choens">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+	  var link = document.createElement( 'link' );
+	  link.rel = 'stylesheet';
+	  link.type = 'text/css';
+	  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	  document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+	<!--[if lt IE 9]>
+		 <script src="lib/js/html5shiv.js"></script>
+		 <![endif]-->
+  </head>
+
+  <body>
+
+	<div class="reveal">
+
+	  <!-- Any section element inside of this container is displayed as a slide -->
+	  <div class="slides">
+        
+		<section>
+		  <h1>Centralized Workflow</h1>
+          <img src="./svg/repos.svg">
+		</section>
+
+        <section>
+          <h2>Goals</h2>
+          <ul>
+            <li>Centralized Workflow for One</li>
+            <li>Centralized Workflow for Two</li>
+            <li>Practicum w/ Git Extensions</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Centralized Workflow for One</h1>
+          <h2>TODO</h2>
+        </section>
+        
+
+        <section>
+          <h1>Centralized Workflow for Two</h1>
+          <img src="svg/centralized_01.svg">
+          <aside class="notes">
+            <p> Centralized Branch Workflow is one commonly
+              used Git workflow for small to medium-sized
+              projects, which makes ideal for the complexity
+              level found in most research related code
+              bases. These code bases tend to be small, and
+              this workflow strikes a good balance between
+              complexity and integrity. </p>
+            <p>This is largely the model we have been
+              using for the Quarterly QA reports. With the
+              QA reports, I am doing more complex branching,
+              but I'm largely hiding it from everyone.</p>
+          </aside>
+        </section>
+
+        <section>
+          <p> In a Centralized Workflow, there is a master
+            repository, which everyone clones to his or her
+            local system.</p>
+          <aside class="notes">
+            <p>This is the most commonly used work flow
+              for one-person projects or where one person is
+              driving the development and other programmers
+              are primarily users of the code.</p>
+            <p>Each cloned repository is full copy of the
+              project. Local users can create and destroy
+              local branches.</p>
+          </aside>
+        </section>
+        <section>
+          <img src="svg/centralized_02.svg" height="512">
+          <aside class="notes">
+            <p>In a one-person project, development often
+              happens directly on the master branch. As
+              commits are made, they are pushed to the
+              central repository which stores a linear
+              history of development.</p>
+          </aside>
+        </section>
+        <section>
+          <img src="svg/centralized_03.svg">
+          <aside class="notes">
+            <p>If there are two or more developers, it is
+              almost inevitable that they will get out of
+              sync with one another. In this case, developer
+              B (light blue) is working on something and the
+              primary developer has pushed a change, to the
+              primary master branch AFTER the developer in
+              light blue clones the repository.</p>
+            <p>This is not a problem, because Git will
+              help the developer identify and merge these
+              changes, from the master repository into the
+              local copy.</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h1>Centralized Workflow Example</h1>
+        </section>
+
+        <section>
+          <h2>Someone starts a new project and creates a master respository.</h2>
+          <img src="svg/centralized_example_01.svg">
+        </section>
+
+        <section>
+          <h2>Everybody clones the central repository.</h2>
+          <img src="svg/centralized_example_02.svg">
+        </section>
+
+        <section>
+          <h2>Andy develops a new feature.</h2>
+          <img src="svg/centralized_example_03.svg">
+        </section>
+
+        <section>
+          <h2>Andy commits his work and pushes it to the central repository.</h2>
+          <img src="svg/centralized_example_05.svg">
+        </section>
+
+        <section>
+          <h2>Carolyn pulls down Andy's changes and runs a new report.</h2>
+          <img src="svg/centralized_example_07.svg">
+          <aside class="notes">
+            <p>Carolyn's code may have diverged from
+              origin, but as long as Andy's changes do not
+              conflict Carolyn's changes, Git will apply
+              Andy's changes to Carolyn's code when Carolyn
+              runs a pull request on the code.</p>
+        </section>
+
+        <section>
+          <h1>Git Extensions Practicum</h1>
+        </section>
+
+        <section>
+          <h1>Next Time!</h1>
+          <ul class="left">
+            <li> How to deal with multiple developers!</li>
+          </ul>
+        </section>
+        
+        <section>
+          <p>All credits for the graphics go to Atlassian.</p>
+          <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" >atlassian.com/git/tutorials/comparing-workflows</a>
+        </section>
+
+
+	  </div>
+
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+	  // Full list of configuration options available at:
+	  // https://github.com/hakimel/reveal.js#configuration
+	  Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		// Optional reveal.js plugins
+		dependencies: [
+		  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		  { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+		  { src: 'plugin/zoom-js/zoom.js', async: true },
+		  { src: 'plugin/notes/notes.js', async: true }
+		]
+	  });
+
+	</script>
+
+  </body>
+</html>
